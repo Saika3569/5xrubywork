@@ -11,11 +11,13 @@ class CouponsController < ApplicationController
 
   def validate
     num = get_uniq_nums(10, 100)
-    
-    if TwidValidator.valid?(params[:twid])
-      redirect_to coupons_path, notice: "已成功兌換，您的序號為#{num.to_s} "
-    else
-      render :coupon ,notice: "輸入有誤，請重新輸入"
+
+    if params[:name].blank? || params[:phone].blank? || params[:phone].blank? 
+      redirect_to coupon_path, notice: "沒填喔"
+    elsif TwidValidator.valid?(params[:twid])
+      redirect_to coupons_path, notice: "已成功兌換，您的序號為#{num} "
+    else 
+      redirect_to coupon_path, notice: "您的身分證字號有誤，請確認後重新輸入"
   end
 end
 
