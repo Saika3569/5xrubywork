@@ -1,0 +1,10 @@
+<%= form_tag coupon_path do %>
+
+<%= label_tag :name, '名字' %>
+<%= text_field_tag :name %>
+<%= label_tag :twid, '身分證字號' %>
+<%= text_field_tag :twid %>
+<%= label_tag :twid, '手機' %>
+<%= text_field_tag :phone %>
+<%= submit_tag '送出'%>
+<% end %>
